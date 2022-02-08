@@ -1,4 +1,7 @@
+require: rubocop-rails
+
 AllCops:
+  NewCops: enable
   Exclude:
     - db/schema.rb
     - db/migrate/*.rb
@@ -26,7 +29,7 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 Metrics/MethodLength:

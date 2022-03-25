@@ -8,8 +8,10 @@
 #---
 class LineItemsController < ApplicationController
   include CurrentCart
+
+  skip_before_action :authorize, only: :create
   before_action :set_cart, only: [:create]
-  before_action :set_line_item, only: %i[ show edit update destroy ]
+  before_action :set_line_item, only: %i[show edit update destroy]
 
   # GET /line_items or /line_items.json
   def index
@@ -17,8 +19,7 @@ class LineItemsController < ApplicationController
   end
 
   # GET /line_items/1 or /line_items/1.json
-  def show
-  end
+  def show; end
 
   # GET /line_items/new
   def new
@@ -26,8 +27,7 @@ class LineItemsController < ApplicationController
   end
 
   # GET /line_items/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /line_items or /line_items.json
   def create
@@ -38,13 +38,10 @@ class LineItemsController < ApplicationController
       if @line_item.save
         format.turbo_stream { @current_item = @line_item }
         format.html { redirect_to store_index_url }
-        format.json { render :show,
-          status: :created, location: @line_item }
+        format.json { render :show, status: :created, location: @line_item }
       else
-        format.html { render :new,
-          status: :unprocessable_entity }
-        format.json { render json: @line_item.errors,
-          status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -73,14 +70,14 @@ class LineItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def line_item_params
-      params.require(:line_item).permit(:product_id)
-    end
-  #...
+  # Use callbacks to share common setup or constraints between actions.
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def line_item_params
+    params.require(:line_item).permit(:product_id)
+  end
 end

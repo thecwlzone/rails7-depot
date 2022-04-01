@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+README last updated on Apr 1, 2022
 
-Things you may want to cover:
+My version of the Depot code used in Sam Ruby's book Agile Web Development with Rails 7,
+published by The Pragmatic Programmers
 
-* Ruby version
+* Ruby version - 3.1.1
 
-* System dependencies
+* Rails version - 7.0.2.3
 
-* Configuration
+* The database was converted from the default SQLite3 to PostgreSQL in order to support a Heroku deployment at
 
-* Database creation
+  [https://enigmatic-escarpment-36823.herokuapp.com/](https://enigmatic-escarpment-36823.herokuapp.com/)
 
-* Database initialization
+* Unit tests - `bin/rails test` - Pass
 
-* How to run the test suite
+* System tests - Uses the Safari browser
 
-* Services (job queues, cache servers, search engines, etc.)
+  `bin/rails test test/system/orders_test.rb` - All tests pass
 
-* Deployment instructions
+  `bin/rails test test/system/users_test.rb` - Tests fail, they have not been updated from the original scaffold creation
 
-* ...
+## Additional Notes
+
+* The code is being updated based upon Rubocop 1.26.1 - see .rubocop.yml - this is a work in progress
+
+* Task I - Logging In - system tests have not been updated from the original scaffold creation
+
+* Task J: Internationalization - Not added
+
+* Task K: Receive Emails and Respond with Rich Text - Not added
+
+* Ruby and Rails versions will be updated as new versions are released
+

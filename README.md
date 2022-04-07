@@ -25,6 +25,8 @@ published by The Pragmatic Programmers
 
 * The code is being updated based upon Rubocop 1.26.1 - see .rubocop.yml - this is a work in progress
 
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
+
 * Task I - Logging In - system tests have not been updated from the original scaffold creation
 
 * Task J: Internationalization - Not added
